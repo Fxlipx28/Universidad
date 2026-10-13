@@ -1,0 +1,186 @@
+/* Paleta "Naturaleza Vibrante" */
+:root {
+    --bg-color: #f4f1ea; /* Beige arena claro (tierra) */
+    --text-main: #2c3e2d; /* Verde muy oscuro casi negro */
+    --text-light: #5f7160;
+    --primary-green: #3a6332; /* Verde bosque */
+    --accent-orange: #d35400; /* Naranja terracota muy vibrante */
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    /* Formato App Móvil (Centrado en pantallas grandes) */
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    background-color: white;
+    padding-bottom: 80px; /* Espacio para el menú inferior */
+}
+
+/* --- Barra Superior --- */
+.top-bar {
+    background-color: var(--primary-green);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.top-bar h1 { font-size: 1.4rem; font-weight: bold; margin: 0; }
+.icon-btn { background: none; border: none; color: white; font-size: 1.3rem; cursor: pointer; }
+
+/* --- Hero Section (Llamativa) --- */
+.hero-section {
+    /* Gradiente vibrante de verde a naranja terracota */
+    background: linear-gradient(135deg, var(--primary-green), var(--accent-orange));
+    margin: 20px 15px;
+    padding: 25px 20px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 8px 20px rgba(211, 84, 0, 0.3);
+}
+.hero-section h2 { font-size: 1.5rem; margin-bottom: 5px; }
+.hero-section p { margin-bottom: 15px; font-size: 0.95rem; opacity: 0.9; }
+
+.btn-primary {
+    background-color: white;
+    color: var(--accent-orange);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* --- Secciones Generales --- */
+.cerros-section, .django-data { margin: 25px 15px; }
+h3 { font-size: 1.2rem; margin-bottom: 15px; color: var(--primary-green); font-weight: 700; }
+
+/* --- Tarjetas de Cerros --- */
+.cards-container { display: flex; flex-direction: column; gap: 15px; }
+.card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    border: 1px solid #eaeaea;
+}
+.card-img {
+    height: 130px;
+    position: relative;
+    /* Imágenes de placeholder simulando cerros chilenos desde Unsplash */
+}
+.img-provincia {
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80') center/cover;
+}
+.img-manquehue {
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=600&q=80') center/cover;
+}
+
+.badge {
+    position: absolute;
+    top: 10px; right: 10px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.diff-alta { background-color: #c0392b; } /* Rojo para difícil */
+.diff-media { background-color: #e67e22; } /* Naranja para media */
+
+.card-info { padding: 15px; }
+.card-info h4 { font-size: 1.15rem; margin-bottom: 5px; color: var(--text-main); }
+.card-info p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 15px; }
+
+.btn-secondary {
+    width: 100%;
+    background-color: var(--bg-color);
+    color: var(--primary-green);
+    border: 1px solid var(--primary-green);
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-secondary:hover { background-color: var(--primary-green); color: white; }
+
+/* --- Integrantes (Django Loop) --- */
+.django-data ul {
+    list-style: none;
+    background: var(--bg-color);
+    padding: 15px;
+    border-radius: 15px;
+}
+.django-data li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+.django-data li:last-child { border-bottom: none; }
+.django-data li i { color: var(--primary-green); margin-right: 10px; }
+
+/* --- Menú Inferior (App) --- */
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--nav-bg);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0 15px 0;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #a0aab2;
+    font-size: 0.75rem;
+    gap: 5px;
+}
+.nav-item i { font-size: 1.3rem; }
+.nav-item.active { color: var(--primary-green); font-weight: bold; }
+
+/* Botón Central de Cámara (Subir Foto / Ruta) */
+.add-btn-container { position: relative; top: -20px; }
+.add-btn {
+    background-color: var(--accent-orange);
+    color: white;
+    border: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(211, 84, 0, 0.4);
+    cursor: pointer;
+    border: 4px solid white;
+}

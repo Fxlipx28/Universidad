@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{{ titulo }}</title>
+    
+    <!-- Conexión a tu archivo CSS -->
+    <link rel="stylesheet" href="{% static 'inicio/style.css' %}">
+    
+    <!-- Iconos de FontAwesome (Gratis y directos para botones de app) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Barra superior de la App -->
+    <header class="top-bar">
+        <h1>{{ titulo }}</h1>
+        <button class="icon-btn" aria-label="Configuración"><i class="fas fa-cog"></i></button>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="app-content">
+        <!-- Tarjeta Hero (Llamativa y colorida) -->
+        <section class="hero-section">
+            <h2>¿Listo para tu próxima cumbre?</h2>
+            <p>Encuentra tu cordada ideal hoy.</p>
+            <button class="btn-primary">Proponer Ruta <i class="fas fa-route"></i></button>
+        </section>
+
+        <!-- Lista de Cerros (Sketch) -->
+        <section class="cerros-section">
+            <h3>Cerros por subir</h3>
+            <div class="cards-container">
+                <!-- Tarjeta 1 (Ejemplo: Cerro Provincia) -->
+                <div class="card">
+                    <div class="card-img img-provincia">
+                        <span class="badge diff-alta">Difícil</span>
+                    </div>
+                    <div class="card-info">
+                        <h4>Cerro Provincia</h4>
+                        <p><i class="fas fa-mountain"></i> 2.750 msnm • Santiago</p>
+                        <button class="btn-secondary">Buscar Grupo</button>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta 2 (Ejemplo: Cerro Manquehue) -->
+                <div class="card">
+                    <div class="card-img img-manquehue">
+                        <span class="badge diff-media">Media</span>
+                    </div>
+                    <div class="card-info">
+                        <h4>Cerro Manquehue</h4>
+                        <p><i class="fas fa-mountain"></i> 1.638 msnm • Santiago</p>
+                        <button class="btn-secondary">Buscar Grupo</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tu código original de Integrantes adaptado al diseño -->
+        <section class="django-data">
+            <h3>Equipo (Integrantes)</h3>
+            <ul>
+                {% for nombre in integrantes %}
+                    <li><i class="fas fa-leaf"></i> {{ nombre }}</li>
+                {% empty %}
+                    <li><i class="fas fa-info-circle"></i> No hay integrantes cargados.</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <!-- Barra de navegación inferior (Fija) -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active"><i class="fas fa-home"></i><span>Inicio</span></a>
+        <a href="#" class="nav-item"><i class="fas fa-search"></i><span>Buscar</span></a>
+
+        <!-- Reemplaza el div del botón de la cámara con esto -->
+        <div class="nav-item add-btn-container">
+            <a href="{% url 'crear_salida' %}" class="add-btn">
+                <i class="fas fa-camera"></i>
+            </a>
+        </div>
+
+        <a href="#" class="nav-item"><i class="fas fa-comments"></i><span>Chats</span></a>
+        <a href="#" class="nav-item"><i class="fas fa-user"></i><span>Perfil</span></a>
+    </nav>
+</body>
+</html>
